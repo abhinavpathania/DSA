@@ -27,18 +27,24 @@ public:
         tail=newNode;
     }
     void pop(){
+        if(head==NULL){
+            cout<<"Empty Queue";
+            return;
+        }
         Node* temp=head;
         head=head->next;
-        
+        delete temp;
 
     }
-    void print(){
-        Node* temp=head;
-        while(temp!=NULL){
-            cout<<temp->data<<"->";
-            temp=temp->next;
+    int front(){
+        if(head==NULL){
+            cout<<"Queue Empty";
+            return -1;
         }
-        cout<<"NULL";
+        return head->data;
+    }
+    bool empty(){
+        return head==NULL;
     }
 
 };
@@ -46,11 +52,17 @@ public:
 int main()
 {
     Queue Q;
-    Q.push(3);
-    Q.push(2);
     Q.push(1);
-
-    Q.print();
+    Q.pop();
+    Q.push(2);
+    Q.push(3);
+    Q.push(4);
+    Q.push(5);
+    Q.pop();
+    while(!Q.empty()){
+        cout<<Q.front()<<" ";
+        Q.pop();
+    }
 
     return 0;
 }
