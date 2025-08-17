@@ -4,13 +4,13 @@ using namespace std;
 
 void selectionsort(vector<int> &nums){
     int n=nums.size();
-    for(int i=0;i<n-1;i++){
-        int si=i;
-        for(int j=i+1;j<n;j++){
+    for(int i=0;i<n-1;i++){ // for Total array
+        int si=i; // Kept index where next smallest element is present !
+        for(int j=i+1;j<n;j++){ // find minimum from (i+1) till 'i' array is sorted!
             if(nums[j]<nums[si]){
                 si=j;
             }
-            swap(nums[si],nums[i]);
+            swap(nums[si],nums[i]); // swapped min element with its current position element
         }
 
     }
